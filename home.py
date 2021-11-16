@@ -1,0 +1,21 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.support.select import Select
+driver = webdriver.Chrome()
+driver.maximize_window()
+driver.get("http://practice.automationtesting.in/")
+time.sleep(3)
+driver.execute_script("window.scrollBy(0, 600);")
+Selenium_Ruby = driver.find_element_by_css_selector(".woocommerce-LoopProduct-link:nth-child(1)").click()
+Reviews = driver.find_element_by_xpath("//a[@href='#tab-reviews']").click()
+time.sleep(2)
+Rating = driver.find_element_by_class_name("star-5").click()
+time.sleep(2)
+Review = driver.find_element_by_id("comment").send_keys("Nice book!")
+time.sleep(2)
+Name = driver.find_element_by_id("author").send_keys("Viktor")
+Email = driver.find_element_by_id("email").send_keys("viktor@mail.ru")
+time.sleep(2)
+Submit = driver.find_element_by_id("submit").click()
+time.sleep(2)
+driver.quit()
